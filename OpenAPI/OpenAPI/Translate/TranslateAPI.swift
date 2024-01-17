@@ -22,9 +22,12 @@ class TranslateAPI {
             switch response.result {
             case .success(let success):
                 let papagoData = success.message.result
+                dump(success)
                 
+                completion(papagoData.translatedText)
             case .failure(let failure):
-                print("실패")
+                print("파파고 번역 실패")
+                print(failure)
             }
         }
     }
