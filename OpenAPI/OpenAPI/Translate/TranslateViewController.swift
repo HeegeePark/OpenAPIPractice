@@ -9,21 +9,46 @@ import UIKit
 
 class TranslateViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBOutlet var sourceButton: UIButton!
+    @IBOutlet var targetButton: UIButton!
+    @IBOutlet var swapLanguageButton: UIButton!
+    
+    @IBOutlet var sourceTextView: UITextView!
+    @IBOutlet var targetLabel: UILabel!
+    
+    lazy var sourceLanguage = Language.code["ko"] {
+        didSet {
+            sourceButton.setTitle(sourceLanguage, for: .normal)
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    lazy var targetLanguage = Language.code["en"] {
+        didSet {
+            targetButton.setTitle(targetLanguage, for: .normal)
+        }
     }
-    */
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureUI()
+    }
+    
+    @IBAction func sourceButtonTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func targetButtonTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func swapLanguageButtonTapped(_ sender: UIButton) {
+        let tempCode = sourceLanguage
+        sourceLanguage = targetLanguage
+        targetLanguage = tempCode
+    }
+}
 
+extension TranslateViewController {
+    func configureUI() {
+        sourceButton.setTitle(sourceLanguage, for: .normal)
+        targetButton.setTitle(targetLanguage, for: .normal)
+    }
 }

@@ -3,14 +3,15 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Translate-->
         <scene sceneID="2q4-EE-w8q">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p4U-BO-VQb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ngs-8b-JpN"/>
+                    <tabBarItem key="tabBarItem" title="Translate" image="character.book.closed" catalog="system" selectedImage="character.book.closed.fill" id="ngs-8b-JpN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KVt-ge-bZ0">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -25,11 +26,11 @@
             </objects>
             <point key="canvasLocation" x="863.35877862595419" y="-1019.0140845070423"/>
         </scene>
-        <!--Item-->
+        <!--Book-->
         <scene sceneID="4x4-Mt-igI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gJZ-gX-XpD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="hUc-gM-wek"/>
+                    <tabBarItem key="tabBarItem" title="Book" image="book" selectedImage="book.fill" catalog="system" id="hUc-gM-wek"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sqG-ZZ-3iO">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -52,6 +53,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N8z-5u-WCt">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemOrangeColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="p4U-BO-VQb" kind="relationship" relationship="viewControllers" id="HC6-6Q-3QM"/>
@@ -83,4 +85,13 @@
             <point key="canvasLocation" x="1567" y="-318"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="book" width="128" height="128"/>
+        <image name="book.fill" catalog="system" width="128" height="95"/>
+        <image name="character.book.closed" catalog="system" width="115" height="128"/>
+        <image name="character.book.closed.fill" catalog="system" width="115" height="128"/>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
