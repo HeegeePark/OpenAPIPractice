@@ -51,4 +51,43 @@ enum Language {
         "it": "이탈리아어",
         "fr": "프랑스어"
     ]
+    
+    static var orderedKey: [Int: String] {
+        var dict = [Int: String]()
+        for key in code.keys {
+            switch key {
+            case "ko":
+                dict[0] = key
+            case "en":
+                dict[1] = key
+            case "ja":
+                dict[2] = key
+            case "zh-CN":
+                dict[3] = key
+            case "zh-TW":
+                dict[4] = key
+            case "vi":
+                dict[5] = key
+            case "id":
+                dict[6] = key
+            case "th":
+                dict[7] = key
+            case "de":
+                dict[8] = key
+            case "ru":
+                dict[9] = key
+            case "es":
+                dict[10] = key
+            case "it":
+                dict[11] = key
+            default:
+                dict[12] = key
+            }
+        }
+        return dict
+    }
+    
+    static subscript(i: Int) -> String {
+        return code[orderedKey[i]!]!
+    }
 }
