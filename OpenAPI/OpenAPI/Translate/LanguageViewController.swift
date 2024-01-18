@@ -63,7 +63,8 @@ extension LanguageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "languageCell", for: indexPath)
         
-        let language = Language[indexPath.row]
+//        let language = Language[indexPath.row]
+        let language = Language.orderedCode[indexPath.row].value
         cell.textLabel?.text = language
         cell.textLabel?.textColor = language == currnetLanguage ? .orange: .black
             
@@ -71,7 +72,8 @@ extension LanguageViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let key = Language.orderedKey[indexPath.row]!
+//        let key = Language.orderedKey[indexPath.row]!
+        let key = Language.orderedCode[indexPath.row].key
         
         popViewController(key: key)
     }

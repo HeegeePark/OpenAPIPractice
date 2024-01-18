@@ -90,4 +90,12 @@ enum Language {
     static subscript(i: Int) -> String {
         return code[orderedKey[i]!]!
     }
+    
+    // sorted로 순서를 보장한 딕셔너리
+    // index로 딕셔너리 item에 접근 가능.
+    static var orderedCode: [Dictionary<String, String>.Element] {
+        return code.sorted {
+            $0.key < $1.key
+        }
+    }
 }
