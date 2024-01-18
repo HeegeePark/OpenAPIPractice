@@ -45,7 +45,7 @@ extension LanguageViewController {
     func configureUI() { }
     
     func configureNavigationBar() { 
-        navigationItem.title = "Language 선택"
+        navigationItem.title = mode == .source ? "원본 언어 선택": "번역 언어 선택"
     }
     
     func configureTableView() {
