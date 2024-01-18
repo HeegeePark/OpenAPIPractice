@@ -19,7 +19,7 @@ class LanguageViewController: UIViewController {
     var mode: Mode?
     var currnetLanguage: String?
     
-    var languageSelectedHandler: ((String) -> Void)?
+    var languageSelectedHandler: ((String?) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,10 @@ class LanguageViewController: UIViewController {
         configureUI()
         configureNavigationBar()
         configureTableView()
+    }
+    
+    @objc func saveButtonTapped(_ sender: UIButton) {
+        dismissViewController(key: nil)
     }
     
     func setMode(mode: Mode, current: String) {
@@ -38,6 +42,11 @@ class LanguageViewController: UIViewController {
         languageSelectedHandler?(key)
         navigationController?.popViewController(animated: true)
     }
+    
+    func dismissViewController(key: String?) {
+        languageSelectedHandler?(key)
+        dismiss(animated: true)
+    }
 }
 
 // MARK: - Custom UI
@@ -46,6 +55,12 @@ extension LanguageViewController {
     
     func configureNavigationBar() { 
         navigationItem.title = mode == .source ? "원본 언어 선택": "번역 언어 선택"
+        
+        if mode == .target {
+            // 저장 버튼
+            let item = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonTapped))
+            navigationItem.rightBarButtonItem = item
+        }
     }
     
     func configureTableView() {
@@ -75,6 +90,11 @@ extension LanguageViewController: UITableViewDelegate, UITableViewDataSource {
 //        let key = Language.orderedKey[indexPath.row]!
         let key = Language.orderedCode[indexPath.row].key
         
-        popViewController(key: key)
+        switch mode! {
+        case .source:
+            popViewController(key: key)
+        case .target:
+            dismissViewController(key: key)
+        }
     }
 }

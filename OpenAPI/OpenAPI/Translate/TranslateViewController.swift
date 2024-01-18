@@ -49,7 +49,7 @@ class TranslateViewController: UIViewController {
     }
     
     @objc func targetButtonTapped(_ sender: UIButton) {
-        pushLanguageViewcontroller(.target)
+        presentLanguageViewcontroller(.target)
     }
     
     @objc func swapLanguageButtonTapped(_ sender: UIButton) {
@@ -71,7 +71,8 @@ class TranslateViewController: UIViewController {
         let language = mode == .source ? sourceLanguage: targetLanguage
         vc.setMode(mode: mode, current: language)
         
-        vc.languageSelectedHandler = { [self] (key) in
+        vc.languageSelectedHandler = { [self] key in
+            guard let key else { return }
             switch mode {
             case .source:
                 // 선택 후 source, target이 동일 언어일 때, swap 처리
@@ -91,6 +92,36 @@ class TranslateViewController: UIViewController {
         }
         
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func presentLanguageViewcontroller(_ mode: Mode) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: LanguageViewController.identfiler) as! LanguageViewController
+        
+        let language = mode == .source ? sourceLanguage: targetLanguage
+        vc.setMode(mode: mode, current: language)
+        
+        vc.languageSelectedHandler = { [self] key in
+            guard let key else { return }
+            switch mode {
+            case .source:
+                // 선택 후 source, target이 동일 언어일 때, swap 처리
+                if isSameLanguage(key, targetKey!) {
+                    swapLanguageButtonTapped(swapLanguageButton)
+                    break
+                }
+                sourceKey = key
+            case .target:
+                // 선택 후 source, target이 동일 언어일 때, swap 처리
+                if isSameLanguage(key, sourceKey!) {
+                    swapLanguageButtonTapped(swapLanguageButton)
+                    break
+                }
+                targetKey = key
+            }
+        }
+        
+        let nav = UINavigationController(rootViewController: vc)
+        present(nav, animated: true)
     }
     
     func isSameLanguage(_ a: String, _ b: String) -> Bool {
