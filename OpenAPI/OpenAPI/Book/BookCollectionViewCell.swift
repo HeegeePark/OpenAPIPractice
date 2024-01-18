@@ -47,6 +47,6 @@ extension BookCollectionViewCell {
         
         authorLabel.text = doc.authors.first
         
-        priceLabel.text = doc.price.setComma()
+        priceLabel.text = "₩" + doc.price.setComma()
     }
 }
