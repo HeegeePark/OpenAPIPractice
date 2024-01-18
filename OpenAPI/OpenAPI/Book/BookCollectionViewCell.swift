@@ -32,6 +32,8 @@ extension BookCollectionViewCell {
         cellView.setRandomBackgroundColor()
         cellView.setCornerRadius(style: .medium)
         
+        titleLabel.font = .boldSystemFont(ofSize: 17)
+        
         thumbnailImageView.contentMode = .scaleAspectFill
     }
     

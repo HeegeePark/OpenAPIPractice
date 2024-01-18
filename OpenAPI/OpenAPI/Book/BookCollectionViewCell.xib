@@ -33,7 +33,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHS-oR-YHx">
-                                <rect key="frame" x="8" y="40.333333333333336" width="134" height="16"/>
+                                <rect key="frame" x="8" y="36.333333333333336" width="134" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="Phj-hS-83y"/>
                                 </constraints>
@@ -61,7 +61,7 @@
                             <constraint firstItem="UwU-2D-j95" firstAttribute="leading" secondItem="KoM-nI-9gs" secondAttribute="trailing" constant="8" id="Rsr-qb-wWG"/>
                             <constraint firstAttribute="trailing" secondItem="UwU-2D-j95" secondAttribute="trailing" constant="16" id="XHn-yM-uyd"/>
                             <constraint firstItem="fHS-oR-YHx" firstAttribute="width" secondItem="WCE-xL-YOm" secondAttribute="width" id="bPj-4z-a9E"/>
-                            <constraint firstItem="fHS-oR-YHx" firstAttribute="top" secondItem="WCE-xL-YOm" secondAttribute="bottom" constant="8" id="eUt-gP-pNe"/>
+                            <constraint firstItem="fHS-oR-YHx" firstAttribute="top" secondItem="WCE-xL-YOm" secondAttribute="bottom" constant="4" id="eUt-gP-pNe"/>
                             <constraint firstItem="UwU-2D-j95" firstAttribute="width" secondItem="baj-G1-2SB" secondAttribute="width" multiplier="0.426667" id="iUa-lc-4zl"/>
                             <constraint firstAttribute="trailing" secondItem="WCE-xL-YOm" secondAttribute="trailing" constant="8" id="jZs-2M-zMb"/>
                             <constraint firstItem="WCE-xL-YOm" firstAttribute="top" secondItem="baj-G1-2SB" secondAttribute="top" constant="12" id="op5-gL-Y56"/>
